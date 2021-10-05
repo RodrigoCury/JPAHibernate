@@ -19,7 +19,7 @@ public class TestaCadastroDePedido {
         EntityManager em = JPAUtil.getEntity();
         ProdutoDao produtoDao = new ProdutoDao(em);
         ClienteDao clienteDao = new ClienteDao(em);
-
+        PedidoDao pedidoDao = new PedidoDao(em);
         // Start Transaction
         em.getTransaction().begin();
 
@@ -28,15 +28,7 @@ public class TestaCadastroDePedido {
         Produto apple = produtoDao.pegaPorId(3L);
         Cliente cliente = clienteDao.pegaPorId(1L);
 
-        Pedido pedido = new Pedido(cliente);
-        pedido.addItem(new ItemPedido(12, xiaomi, pedido));
-        pedido.addItem(new ItemPedido(32, samsung, pedido));
-        pedido.addItem(new ItemPedido(42, apple, pedido));
-
-        PedidoDao pedidoDao = new PedidoDao(em);
-        pedidoDao.cadastrar(pedido);
-
-
+        Pedido pedido = pedidoDao.buscarPedidoComCliente(1L);
         em.getTransaction().commit();
 
         BigDecimal totalVendido = new PedidoDao(em).valorTotalVendido();
