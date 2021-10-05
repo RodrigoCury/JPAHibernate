@@ -53,21 +53,21 @@ public class TestaEntityManager {
 //		
 //		// Remove os estados managed
 		em.clear();
-//		
+
 //		celular.setNome("Johnny");
-//		
-//		// Devolve o Objecto em estado Managed
+//
+//		// Devolve o Objeto em estado Managed
 //		celular = em.merge(celular);
-//		
+//
 ////		Remove do BD
 ////		em.remove(celular);
-//		
+//
 //		em.flush();
-//		
+//
 //		// Fecha o Manager
-		
+
 //		System.out.println(em.find(Produto.class, 1l));
-		
+
 		em.getTransaction().commit();
 		em.close();
 		

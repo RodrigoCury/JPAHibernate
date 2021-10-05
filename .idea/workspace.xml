@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="19107e5a-4931-44d6-b37d-00256eb7afff" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/JPAHibernate/.project" beforeDir="false" afterPath="$PROJECT_DIR$/JPAHibernate/.project" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JPAHibernate/.settings/org.eclipse.jdt.core.prefs" beforeDir="false" afterPath="$PROJECT_DIR$/JPAHibernate/.settings/org.eclipse.jdt.core.prefs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JPAHibernate/src/main/java/br/dev/rodrigocury/loja/main/CadastroDeProduto.java" beforeDir="false" afterPath="$PROJECT_DIR$/JPAHibernate/src/main/java/br/dev/rodrigocury/loja/main/CadastroDeProduto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JPAHibernate/src/main/java/br/dev/rodrigocury/loja/modelo/Categoria.java" beforeDir="false" afterPath="$PROJECT_DIR$/JPAHibernate/src/main/java/br/dev/rodrigocury/loja/modelo/Categoria.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/JPAHibernate/src/main/java/br/dev/rodrigocury/loja/modelo/Produto.java" beforeDir="false" afterPath="$PROJECT_DIR$/JPAHibernate/src/main/java/br/dev/rodrigocury/loja/modelo/Produto.java" afterDir="false" />
-    </list>
+    <list default="true" id="19107e5a-4931-44d6-b37d-00256eb7afff" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -25,7 +19,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/JPAHibernate" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RunManager">
@@ -62,6 +56,7 @@
       <option name="presentableId" value="Default" />
       <updated>1633294061363</updated>
       <workItem from="1633294064133" duration="1143000" />
+      <workItem from="1633405738752" duration="63000" />
     </task>
     <servers />
   </component>
