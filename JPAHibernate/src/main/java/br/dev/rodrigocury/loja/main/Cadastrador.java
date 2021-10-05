@@ -12,7 +12,7 @@ import javax.persistence.EntityManager;
 import java.math.BigDecimal;
 
 public class Cadastrador {
-    public static void cadastraProduto(){
+    public static void populaBD(){
         Categoria celulares = new Categoria("Celulares");
         Produto celular = new Produto("Xiaomi", "Redmi 8", new BigDecimal("800"), celulares );
         Produto celular2 = new Produto("Samsung", "Redmi 8", new BigDecimal("800"), celulares );

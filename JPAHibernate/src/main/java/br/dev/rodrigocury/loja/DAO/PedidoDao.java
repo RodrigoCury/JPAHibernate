@@ -2,8 +2,10 @@ package br.dev.rodrigocury.loja.DAO;
 
 import br.dev.rodrigocury.loja.modelo.Pedido;
 import br.dev.rodrigocury.loja.modelo.Produto;
+import br.dev.rodrigocury.loja.vo.RelatorioDeVendasVo;
 
 import javax.persistence.EntityManager;
+import java.math.BigDecimal;
 import java.util.List;
 
 public class PedidoDao {
@@ -33,6 +35,27 @@ public class PedidoDao {
 
     public List<Pedido> pegaTodos(){
         return this.em.createQuery("SELECT p FROM Pedido p", Pedido.class ).getResultList();
+    }
+
+    public BigDecimal valorTotalVendido(){
+        String jpql = "SElECT SUM(p.valorTotal) FROM Pedido p";
+        return em.createQuery(jpql, BigDecimal.class).getSingleResult();
+    }
+
+    public List<RelatorioDeVendasVo> relatorioVendas (){
+        String jpql = "SELECT new br.dev.rodrigocury.loja.vo.RelatorioDeVendasVo(" +
+                "produto.nome, " +
+                "SUM(itens.quantidade), " +
+                "MAX(pedido.data)) " +
+                "FROM Pedido pedido " +
+                "JOIN pedido.itens itens " +
+                "JOIN itens.produto produto " +
+                "GROUP BY itens.quantidade " +
+                "ORDER BY itens.quantidade DESC";
+
+        return em.createQuery(jpql, RelatorioDeVendasVo.class)
+                .getResultList();
+
     }
 
 }

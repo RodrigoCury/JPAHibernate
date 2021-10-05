@@ -1,19 +1,14 @@
 package br.dev.rodrigocury.loja.main;
 
-import java.math.BigDecimal;
-
 import javax.persistence.EntityManager;
 
-import br.dev.rodrigocury.loja.DAO.CategoriaDao;
 import br.dev.rodrigocury.loja.DAO.ProdutoDao;
-import br.dev.rodrigocury.loja.modelo.Categoria;
-import br.dev.rodrigocury.loja.modelo.Produto;
 import br.dev.rodrigocury.loja.util.JPAUtil;
 
 public class TestaEntityManager {
 
 	public static void main(String[] args) {
-		Cadastrador.cadastraProduto();
+		Cadastrador.populaBD();
 		EntityManager em = JPAUtil.getEntity();
 		ProdutoDao pDao = new ProdutoDao(em);
 		

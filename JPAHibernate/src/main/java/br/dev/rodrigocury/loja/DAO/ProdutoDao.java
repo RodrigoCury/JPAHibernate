@@ -39,7 +39,7 @@ public class ProdutoDao {
 	}
 	
 	public List<Produto> buscarPorNomeDaCategoria(String nome) {
-		return this.em.createQuery("SELECT p FROM Produto p WHERE p.categoria.nome = :nome", Produto.class )
+		return this.em.createNamedQuery("produtosPorCategoria", Produto.class)
 				.setParameter("nome", nome)
 				.getResultList();
 	}
@@ -49,7 +49,7 @@ public class ProdutoDao {
 	}
 	
 	public BigDecimal buscarPrecoDoProduto(String nome) {
-	
+
 		return this.em.createQuery("SELECT p.preco FROM Produto p WHERE p.nome = :nome", BigDecimal.class )
 				.setParameter("nome", nome)
 				.getSingleResult();
