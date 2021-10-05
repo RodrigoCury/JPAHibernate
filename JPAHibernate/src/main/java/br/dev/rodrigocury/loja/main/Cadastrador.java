@@ -1,8 +1,10 @@
 package br.dev.rodrigocury.loja.main;
 
 import br.dev.rodrigocury.loja.DAO.CategoriaDao;
+import br.dev.rodrigocury.loja.DAO.ClienteDao;
 import br.dev.rodrigocury.loja.DAO.ProdutoDao;
 import br.dev.rodrigocury.loja.modelo.Categoria;
+import br.dev.rodrigocury.loja.modelo.Cliente;
 import br.dev.rodrigocury.loja.modelo.Produto;
 import br.dev.rodrigocury.loja.util.JPAUtil;
 
@@ -15,17 +17,19 @@ public class Cadastrador {
         Produto celular = new Produto("Xiaomi", "Redmi 8", new BigDecimal("800"), celulares );
         Produto celular2 = new Produto("Samsung", "Redmi 8", new BigDecimal("800"), celulares );
         Produto celular3 = new Produto("Apple", "Redmi 8", new BigDecimal("80000"), celulares );
-
+        Cliente cliente = new Cliente("Rodrigo Cury", "111.222.333-45");
         EntityManager em = JPAUtil.getEntity();
 
         ProdutoDao dao = new ProdutoDao(em);
         CategoriaDao cDao = new CategoriaDao(em);
+        ClienteDao clDao = new ClienteDao(em);
 
         em.getTransaction().begin();
         cDao.cadastrar(celulares);
         dao.cadastrar(celular);
         dao.cadastrar(celular2);
         dao.cadastrar(celular3);
+        clDao.cadastrar(cliente);
 
         // Estado managed | Fará o UPDATE
         celular.setNome("Xiaomi Redmi 8");
