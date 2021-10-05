@@ -4,6 +4,8 @@ import br.dev.rodrigocury.loja.modelo.Cliente;
 import br.dev.rodrigocury.loja.modelo.Produto;
 
 import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
+import java.time.LocalDate;
 import java.util.List;
 
 public class ClienteDao {
@@ -36,8 +38,26 @@ public class ClienteDao {
                 .getResultList();
     }
 
-    public List<Cliente> pegaTodos(){
-        return this.em.createQuery("SELECT p FROM Cliente p", Cliente.class ).getResultList();
+    public List<Cliente> pegaTodos() {
+        return this.em.createQuery("SELECT p FROM Cliente p", Cliente.class).getResultList();
+    }
+
+    public List<Cliente> buscarClientes(String nome, String cpf) {
+        String jpql = "SELECT c FROM Cliente c WHERE 1=1 ";
+        if (nome != null && !nome.trim().isEmpty()) {
+            jpql += "AND c.nome = :nome ";
+        }
+        if (cpf != null) {
+            jpql += " AND c.cpf = :cpf ";
+        }
+        TypedQuery<Cliente> query = this.em.createQuery(jpql, Cliente.class);
+        if (nome != null && !nome.trim().isEmpty()) {
+            query.setParameter("nome", nome);
+        }
+        if (cpf != null) {
+            query.setParameter("cpf", cpf);
+        }
+        return query.getResultList();
     }
 
 }
