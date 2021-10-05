@@ -10,7 +10,9 @@ public class ItemPedido {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
+    @Column(name= "preco_unitario")
     private BigDecimal precoUnitario;
+
     private int quantidade;
 
     @ManyToOne

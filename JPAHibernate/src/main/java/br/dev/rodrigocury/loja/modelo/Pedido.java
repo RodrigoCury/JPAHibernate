@@ -13,13 +13,15 @@ public class Pedido {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
     private LocalDate data;
+
+    @Column(name = "valor_total")
     private BigDecimal valorTotal;
 
     @ManyToOne
     private Cliente cliente;
 
-    @OneToMany(mappedBy = "pedido")
-    private List<ItemPedido> itens = new ArrayList<>();
+    @OneToMany(mappedBy = "pedido", cascade = CascadeType.ALL)
+    private final List<ItemPedido> itens = new ArrayList<>();
 
     public Pedido(Cliente cliente) {
         this.cliente = cliente;
