@@ -2,10 +2,9 @@ package br.dev.rodrigocury.loja.main;
 
 import br.dev.rodrigocury.loja.DAO.CategoriaDao;
 import br.dev.rodrigocury.loja.DAO.ClienteDao;
+import br.dev.rodrigocury.loja.DAO.PedidoDao;
 import br.dev.rodrigocury.loja.DAO.ProdutoDao;
-import br.dev.rodrigocury.loja.modelo.Categoria;
-import br.dev.rodrigocury.loja.modelo.Cliente;
-import br.dev.rodrigocury.loja.modelo.Produto;
+import br.dev.rodrigocury.loja.modelo.*;
 import br.dev.rodrigocury.loja.util.JPAUtil;
 
 import javax.persistence.EntityManager;
@@ -31,6 +30,14 @@ public class Cadastrador {
         dao.cadastrar(celular3);
         clDao.cadastrar(cliente);
 
+        Pedido pedido = new Pedido(cliente);
+        pedido.addItem(new ItemPedido(12, celular, pedido));
+        pedido.addItem(new ItemPedido(32, celular2, pedido));
+        pedido.addItem(new ItemPedido(42, celular3, pedido));
+
+        PedidoDao pedidoDao = new PedidoDao(em);
+        pedidoDao.cadastrar(pedido);
+
         // Estado managed | Fará o UPDATE
         celular.setNome("Xiaomi Redmi 8");
         celular.setDescricao("Custo-benefício");
@@ -54,7 +61,7 @@ public class Cadastrador {
 //		// Fecha o Manager
 
 //		System.out.println(em.find(Produto.class, 1l));
-
+        System.out.println(pedido.getId());
         em.getTransaction().commit();
         em.close();
 
